@@ -1,4 +1,4 @@
-package xk
+package xtkfk
 
 import (
 	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/data"
