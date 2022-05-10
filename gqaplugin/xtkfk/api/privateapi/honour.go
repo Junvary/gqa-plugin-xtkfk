@@ -2,8 +2,8 @@ package privateapi
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/service/privateservice"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/service/privateservice"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"github.com/gin-gonic/gin"
@@ -29,7 +29,7 @@ func GetHonourList(c *gin.Context) {
 }
 
 func EditHonour(c *gin.Context) {
-	var toEditHonour model.GqaPluginXkHonour
+	var toEditHonour model.GqaPluginXtkfkHonour
 	if err := gqaModel.RequestShouldBindJSON(c, &toEditHonour); err != nil {
 		return
 	}
@@ -55,7 +55,7 @@ func AddHonour(c *gin.Context) {
 			Memo:      toAddHonour.Memo,
 		},
 	}
-	addHonour := &model.GqaPluginXkHonour{
+	addHonour := &model.GqaPluginXtkfkHonour{
 		GqaModelWithCreatedByAndUpdatedBy: GqaModelWithCreatedByAndUpdatedBy,
 		Title:                             toAddHonour.Title,
 		Attachment:                        toAddHonour.Attachment,

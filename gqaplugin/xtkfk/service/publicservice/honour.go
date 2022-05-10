@@ -2,15 +2,15 @@ package publicservice
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 )
 
-func GetHonourList(getHonourList model.RequestGetHonourList) (err error, honour []model.GqaPluginXkHonour, total int64) {
+func GetHonourList(getHonourList model.RequestGetHonourList) (err error, honour []model.GqaPluginXtkfkHonour, total int64) {
 	pageSize := getHonourList.PageSize
 	offset := getHonourList.PageSize * (getHonourList.Page - 1)
-	db := gqaGlobal.GqaDb.Model(&model.GqaPluginXkHonour{})
-	var honourList []model.GqaPluginXkHonour
+	db := gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkHonour{})
+	var honourList []model.GqaPluginXtkfkHonour
 	//配置搜索
 	if getHonourList.Title != "" {
 		db = db.Where("title like ?", "%"+getHonourList.Title+"%")

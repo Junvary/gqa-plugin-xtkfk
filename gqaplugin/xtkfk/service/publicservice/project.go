@@ -2,15 +2,15 @@ package publicservice
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 )
 
-func GetProjectList(getProjectList model.RequestGetProjectList) (err error, project []model.GqaPluginXkProject, total int64) {
+func GetProjectList(getProjectList model.RequestGetProjectList) (err error, project []model.GqaPluginXtkfkProject, total int64) {
 	pageSize := getProjectList.PageSize
 	offset := getProjectList.PageSize * (getProjectList.Page - 1)
-	db := gqaGlobal.GqaDb.Model(&model.GqaPluginXkProject{})
-	var projectList []model.GqaPluginXkProject
+	db := gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkProject{})
+	var projectList []model.GqaPluginXtkfkProject
 	//配置搜索
 	if getProjectList.ProjectName != "" {
 		db = db.Where("project_name like ?", "%"+getProjectList.ProjectName+"%")

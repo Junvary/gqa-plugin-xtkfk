@@ -70,8 +70,8 @@ import GqaShowName from 'src/components/GqaShowName'
 const $q = useQuasar()
 const { t } = useI18n()
 const url = {
-    list: 'plugin-xk/get-project-list',
-    delete: 'plugin-xk/delete-project',
+    list: 'plugin-xtkfk/get-project-list',
+    delete: 'plugin-xtkfk/delete-project',
 }
 const columns = computed(() => {
     return [

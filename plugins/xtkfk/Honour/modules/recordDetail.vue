@@ -64,9 +64,9 @@ const storageStore = useStorageStore()
 const gqaBackend = computed(() => storageStore.GetGqaBackend())
 const emit = defineEmits(['handleFinish'])
 const url = {
-    add: 'plugin-xk/add-honour',
-    edit: 'plugin-xk/edit-honour',
-    queryById: 'plugin-xk/query-honour-by-id',
+    add: 'plugin-xtkfk/add-honour',
+    edit: 'plugin-xtkfk/edit-honour',
+    queryById: 'plugin-xtkfk/query-honour-by-id',
 }
 const {
     dictOptions,

@@ -59,8 +59,8 @@ import GqaShowName from 'src/components/GqaShowName'
 const $q = useQuasar()
 const { t } = useI18n()
 const url = {
-    list: 'plugin-xk/get-honour-list',
-    delete: 'plugin-xk/delete-honour',
+    list: 'plugin-xtkfk/get-honour-list',
+    delete: 'plugin-xtkfk/delete-honour',
 }
 const columns = computed(() => {
     return [

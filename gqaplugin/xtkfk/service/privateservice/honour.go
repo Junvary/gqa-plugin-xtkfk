@@ -2,19 +2,19 @@ package privateservice
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaServicePrivate "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/service/private"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"gorm.io/gorm"
 )
 
-func GetHonourList(getHonourList model.RequestGetHonourList, username string) (err error, honour []model.GqaPluginXkHonour, total int64) {
+func GetHonourList(getHonourList model.RequestGetHonourList, username string) (err error, honour []model.GqaPluginXtkfkHonour, total int64) {
 	pageSize := getHonourList.PageSize
 	offset := getHonourList.PageSize * (getHonourList.Page - 1)
-	var honourList []model.GqaPluginXkHonour
+	var honourList []model.GqaPluginXtkfkHonour
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkHonour{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkHonour{})); err != nil {
 		return err, honourList, 0
 	}
 	//配置搜索
@@ -29,12 +29,12 @@ func GetHonourList(getHonourList model.RequestGetHonourList, username string) (e
 	return err, honourList, total
 }
 
-func EditHonour(toEditHonour model.GqaPluginXkHonour, username string) (err error) {
+func EditHonour(toEditHonour model.GqaPluginXtkfkHonour, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkHonour{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkHonour{})); err != nil {
 		return err
 	}
-	var honour model.GqaPluginXkHonour
+	var honour model.GqaPluginXtkfkHonour
 	if err = db.Where("id = ?", toEditHonour.Id).First(&honour).Error; err != nil {
 		return err
 	}
@@ -47,9 +47,9 @@ func EditHonour(toEditHonour model.GqaPluginXkHonour, username string) (err erro
 	return err
 }
 
-func AddHonour(toAddHonour model.GqaPluginXkHonour, username string) (err error) {
+func AddHonour(toAddHonour model.GqaPluginXtkfkHonour, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkHonour{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkHonour{})); err != nil {
 		return err
 	}
 	err = db.Create(&toAddHonour).Error
@@ -58,10 +58,10 @@ func AddHonour(toAddHonour model.GqaPluginXkHonour, username string) (err error)
 
 func DeleteHonourById(id uint, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkHonour{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkHonour{})); err != nil {
 		return err
 	}
-	var honour model.GqaPluginXkHonour
+	var honour model.GqaPluginXtkfkHonour
 	if err = db.Where("id = ?", id).First(&honour).Error; err != nil {
 		return err
 	}
@@ -69,10 +69,10 @@ func DeleteHonourById(id uint, username string) (err error) {
 	return err
 }
 
-func QueryHonourById(id uint, username string) (err error, honourInfo model.GqaPluginXkHonour) {
-	var honour model.GqaPluginXkHonour
+func QueryHonourById(id uint, username string) (err error, honourInfo model.GqaPluginXtkfkHonour) {
+	var honour model.GqaPluginXtkfkHonour
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkHonour{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkHonour{})); err != nil {
 		return err, honour
 	}
 	err = db.Preload("CreatedByUser").Preload("UpdatedByUser").First(&honour, "id = ?", id).Error

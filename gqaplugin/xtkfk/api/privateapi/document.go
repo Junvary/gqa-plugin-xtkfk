@@ -2,8 +2,8 @@ package privateapi
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/service/privateservice"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/service/privateservice"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"github.com/gin-gonic/gin"
@@ -29,7 +29,7 @@ func GetDocumentList(c *gin.Context) {
 }
 
 func EditDocument(c *gin.Context) {
-	var toEditDocument model.GqaPluginXkDocument
+	var toEditDocument model.GqaPluginXtkfkDocument
 	if err := gqaModel.RequestShouldBindJSON(c, &toEditDocument); err != nil {
 		return
 	}
@@ -55,7 +55,7 @@ func AddDocument(c *gin.Context) {
 			Memo:      toAddDocument.Memo,
 		},
 	}
-	addDocument := &model.GqaPluginXkDocument{
+	addDocument := &model.GqaPluginXtkfkDocument{
 		GqaModelWithCreatedByAndUpdatedBy: GqaModelWithCreatedByAndUpdatedBy,
 		Title:                             toAddDocument.Title,
 		Content:                           toAddDocument.Content,

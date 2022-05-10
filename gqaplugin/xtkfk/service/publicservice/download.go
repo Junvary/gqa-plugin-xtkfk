@@ -2,15 +2,15 @@ package publicservice
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 )
 
-func GetDownloadList(getDownloadList model.RequestGetDownloadList) (err error, news []model.GqaPluginXkDownload, total int64) {
+func GetDownloadList(getDownloadList model.RequestGetDownloadList) (err error, news []model.GqaPluginXtkfkDownload, total int64) {
 	pageSize := getDownloadList.PageSize
 	offset := getDownloadList.PageSize * (getDownloadList.Page - 1)
-	db := gqaGlobal.GqaDb.Model(&model.GqaPluginXkDownload{})
-	var newsList []model.GqaPluginXkDownload
+	db := gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkDownload{})
+	var newsList []model.GqaPluginXtkfkDownload
 	//配置搜索
 	if getDownloadList.Title != "" {
 		db = db.Where("title like ?", "%"+getDownloadList.Title+"%")

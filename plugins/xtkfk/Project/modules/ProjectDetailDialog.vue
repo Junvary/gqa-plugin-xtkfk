@@ -122,9 +122,9 @@ const projectDetailVisible = ref(false)
 const project = ref({})
 const projectForm = ref({})
 const url = {
-    add: 'plugin-xk/add-project',
-    edit: 'plugin-xk/edit-project-detail',
-    queryById: 'plugin-xk/query-project-by-id',
+    add: 'plugin-xtkfk/add-project',
+    edit: 'plugin-xtkfk/edit-project-detail',
+    queryById: 'plugin-xtkfk/query-project-by-id',
 }
 
 const show = async (row) => {

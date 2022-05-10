@@ -69,9 +69,9 @@ const storageStore = useStorageStore()
 const gqaBackend = computed(() => storageStore.GetGqaBackend())
 const emit = defineEmits(['handleFinish'])
 const url = {
-    add: 'plugin-xk/add-news',
-    edit: 'plugin-xk/edit-news',
-    queryById: 'plugin-xk/query-news-by-id',
+    add: 'plugin-xtkfk/add-news',
+    edit: 'plugin-xtkfk/edit-news',
+    queryById: 'plugin-xtkfk/query-news-by-id',
 }
 const {
     dictOptions,

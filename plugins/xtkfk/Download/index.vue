@@ -60,8 +60,8 @@ import GqaShowName from 'src/components/GqaShowName'
 const $q = useQuasar()
 const { t } = useI18n()
 const url = {
-    list: 'plugin-xk/get-download-list',
-    delete: 'plugin-xk/delete-download',
+    list: 'plugin-xtkfk/get-download-list',
+    delete: 'plugin-xtkfk/delete-download',
 }
 const columns = computed(() => {
     return [

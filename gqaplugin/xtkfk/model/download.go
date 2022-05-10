@@ -4,7 +4,7 @@ import (
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 )
 
-type GqaPluginXkDownload struct {
+type GqaPluginXtkfkDownload struct {
 	gqaModel.GqaModelWithCreatedByAndUpdatedBy
 	Title      string `json:"title" gorm:"comment:资源标题;not null;index"`
 	Content    string `json:"content" gorm:"comment:资源内容;type:text;"`

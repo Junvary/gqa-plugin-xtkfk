@@ -2,8 +2,8 @@ package privateapi
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/service/privateservice"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/service/privateservice"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"github.com/gin-gonic/gin"
@@ -29,7 +29,7 @@ func GetNewsList(c *gin.Context) {
 }
 
 func EditNews(c *gin.Context) {
-	var toEditNews model.GqaPluginXkNews
+	var toEditNews model.GqaPluginXtkfkNews
 	if err := gqaModel.RequestShouldBindJSON(c, &toEditNews); err != nil {
 		return
 	}
@@ -55,7 +55,7 @@ func AddNews(c *gin.Context) {
 			Memo:      toAddNews.Memo,
 		},
 	}
-	addNews := &model.GqaPluginXkNews{
+	addNews := &model.GqaPluginXtkfkNews{
 		GqaModelWithCreatedByAndUpdatedBy: GqaModelWithCreatedByAndUpdatedBy,
 		Title:                             toAddNews.Title,
 		Content:                           toAddNews.Content,

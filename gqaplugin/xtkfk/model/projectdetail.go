@@ -4,7 +4,7 @@ import (
 	"github.com/google/uuid"
 )
 
-type GqaPluginXkProjectDetail struct {
+type GqaPluginXtkfkProjectDetail struct {
 	ProjectId   uuid.UUID `json:"project_id" gorm:"comment:项目id;index;not null"`
 	ProjectNode string    `json:"project_node" gorm:"comment:项目节点"`
 	Content     string    `json:"content" gorm:"comment:描述;type:text"`
@@ -14,6 +14,6 @@ type GqaPluginXkProjectDetail struct {
 }
 
 type RequestEditProjectDetail struct {
-	ProjectId     uuid.UUID                  `json:"project_id"`
-	ProjectDetail []GqaPluginXkProjectDetail `json:"project_detail"`
+	ProjectId     uuid.UUID                     `json:"project_id"`
+	ProjectDetail []GqaPluginXtkfkProjectDetail `json:"project_detail"`
 }

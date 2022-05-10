@@ -1,7 +1,7 @@
 package publicrouter
 
 import (
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/api/publicapi"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/api/publicapi"
 	"github.com/gin-gonic/gin"
 )
 

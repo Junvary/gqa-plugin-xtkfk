@@ -78,9 +78,9 @@ const storageStore = useStorageStore()
 const gqaBackend = computed(() => storageStore.GetGqaBackend())
 const emit = defineEmits(['handleFinish'])
 const url = {
-    add: 'plugin-xk/add-project',
-    edit: 'plugin-xk/edit-project',
-    queryById: 'plugin-xk/query-project-by-id',
+    add: 'plugin-xtkfk/add-project',
+    edit: 'plugin-xtkfk/edit-project',
+    queryById: 'plugin-xtkfk/query-project-by-id',
 }
 const {
     dictOptions,

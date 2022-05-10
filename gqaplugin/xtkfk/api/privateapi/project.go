@@ -2,8 +2,8 @@ package privateapi
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/service/privateservice"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/service/privateservice"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"github.com/gin-gonic/gin"
@@ -30,7 +30,7 @@ func GetProjectList(c *gin.Context) {
 }
 
 func EditProject(c *gin.Context) {
-	var toEditProject model.GqaPluginXkProject
+	var toEditProject model.GqaPluginXtkfkProject
 	if err := gqaModel.RequestShouldBindJSON(c, &toEditProject); err != nil {
 		return
 	}
@@ -69,7 +69,7 @@ func AddProject(c *gin.Context) {
 			Memo:      toAddProject.Memo,
 		},
 	}
-	addProject := &model.GqaPluginXkProject{
+	addProject := &model.GqaPluginXtkfkProject{
 		GqaModelWithCreatedByAndUpdatedBy: GqaModelWithCreatedByAndUpdatedBy,
 		ProjectId:                         uuid.New(),
 		ProjectName:                       toAddProject.ProjectName,

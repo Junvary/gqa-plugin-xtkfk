@@ -2,19 +2,19 @@ package privateservice
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaServicePrivate "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/service/private"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"gorm.io/gorm"
 )
 
-func GetProjectList(getProjectList model.RequestGetProjectList, username string) (err error, project []model.GqaPluginXkProject, total int64) {
+func GetProjectList(getProjectList model.RequestGetProjectList, username string) (err error, project []model.GqaPluginXtkfkProject, total int64) {
 	pageSize := getProjectList.PageSize
 	offset := getProjectList.PageSize * (getProjectList.Page - 1)
-	var projectList []model.GqaPluginXkProject
+	var projectList []model.GqaPluginXtkfkProject
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkProject{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkProject{})); err != nil {
 		return err, projectList, 0
 	}
 	//配置搜索
@@ -30,12 +30,12 @@ func GetProjectList(getProjectList model.RequestGetProjectList, username string)
 	return err, projectList, total
 }
 
-func EditProject(toEditProject model.GqaPluginXkProject, username string) (err error) {
+func EditProject(toEditProject model.GqaPluginXtkfkProject, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkProject{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkProject{})); err != nil {
 		return err
 	}
-	var project model.GqaPluginXkProject
+	var project model.GqaPluginXtkfkProject
 	if err = db.Where("id = ?", toEditProject.Id).First(&project).Error; err != nil {
 		return err
 	}
@@ -52,7 +52,7 @@ func EditProject(toEditProject model.GqaPluginXkProject, username string) (err e
 }
 
 func EditProjectDetail(toEditProjectDetail model.RequestEditProjectDetail) (err error) {
-	var projectDetail model.GqaPluginXkProjectDetail
+	var projectDetail model.GqaPluginXtkfkProjectDetail
 	if err = gqaGlobal.GqaDb.Where("project_id = ?", toEditProjectDetail.ProjectId).Unscoped().Delete(&projectDetail).Error; err != nil {
 		return err
 	}
@@ -60,9 +60,9 @@ func EditProjectDetail(toEditProjectDetail model.RequestEditProjectDetail) (err 
 	return err
 }
 
-func AddProject(toAddProject model.GqaPluginXkProject, username string) (err error) {
+func AddProject(toAddProject model.GqaPluginXtkfkProject, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkProject{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkProject{})); err != nil {
 		return err
 	}
 	err = db.Create(&toAddProject).Error
@@ -71,10 +71,10 @@ func AddProject(toAddProject model.GqaPluginXkProject, username string) (err err
 
 func DeleteProjectById(id uint, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkProject{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkProject{})); err != nil {
 		return err
 	}
-	var project model.GqaPluginXkProject
+	var project model.GqaPluginXtkfkProject
 	if err = db.Where("id = ?", id).First(&project).Error; err != nil {
 		return err
 	}
@@ -82,10 +82,10 @@ func DeleteProjectById(id uint, username string) (err error) {
 	return err
 }
 
-func QueryProjectById(id uint, username string) (err error, projectInfo model.GqaPluginXkProject) {
-	var project model.GqaPluginXkProject
+func QueryProjectById(id uint, username string) (err error, projectInfo model.GqaPluginXtkfkProject) {
+	var project model.GqaPluginXtkfkProject
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkProject{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkProject{})); err != nil {
 		return err, project
 	}
 	err = db.Preload("Leader").Preload("CreatedByUser").Preload("UpdatedByUser").Preload("ProjectDetail").

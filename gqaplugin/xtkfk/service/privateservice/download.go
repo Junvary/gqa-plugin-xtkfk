@@ -2,19 +2,19 @@ package privateservice
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaServicePrivate "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/service/private"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"gorm.io/gorm"
 )
 
-func GetDownloadList(getDownloadList model.RequestGetDownloadList, username string) (err error, download []model.GqaPluginXkDownload, total int64) {
+func GetDownloadList(getDownloadList model.RequestGetDownloadList, username string) (err error, download []model.GqaPluginXtkfkDownload, total int64) {
 	pageSize := getDownloadList.PageSize
 	offset := getDownloadList.PageSize * (getDownloadList.Page - 1)
-	var downloadList []model.GqaPluginXkDownload
+	var downloadList []model.GqaPluginXtkfkDownload
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkDownload{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkDownload{})); err != nil {
 		return err, downloadList, 0
 	}
 	//配置搜索
@@ -29,12 +29,12 @@ func GetDownloadList(getDownloadList model.RequestGetDownloadList, username stri
 	return err, downloadList, total
 }
 
-func EditDownload(toEditDownload model.GqaPluginXkDownload, username string) (err error) {
+func EditDownload(toEditDownload model.GqaPluginXtkfkDownload, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkDownload{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkDownload{})); err != nil {
 		return err
 	}
-	var download model.GqaPluginXkDownload
+	var download model.GqaPluginXtkfkDownload
 	if err = db.Where("id = ?", toEditDownload.Id).First(&download).Error; err != nil {
 		return err
 	}
@@ -47,9 +47,9 @@ func EditDownload(toEditDownload model.GqaPluginXkDownload, username string) (er
 	return err
 }
 
-func AddDownload(toAddDownload model.GqaPluginXkDownload, username string) (err error) {
+func AddDownload(toAddDownload model.GqaPluginXtkfkDownload, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkDownload{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkDownload{})); err != nil {
 		return err
 	}
 	err = db.Create(&toAddDownload).Error
@@ -58,10 +58,10 @@ func AddDownload(toAddDownload model.GqaPluginXkDownload, username string) (err 
 
 func DeleteDownloadById(id uint, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkDownload{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkDownload{})); err != nil {
 		return err
 	}
-	var download model.GqaPluginXkDownload
+	var download model.GqaPluginXtkfkDownload
 	if err = db.Where("id = ?", id).First(&download).Error; err != nil {
 		return err
 	}
@@ -69,10 +69,10 @@ func DeleteDownloadById(id uint, username string) (err error) {
 	return err
 }
 
-func QueryDownloadById(id uint, username string) (err error, downloadInfo model.GqaPluginXkDownload) {
-	var download model.GqaPluginXkDownload
+func QueryDownloadById(id uint, username string) (err error, downloadInfo model.GqaPluginXtkfkDownload) {
+	var download model.GqaPluginXtkfkDownload
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkDownload{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkDownload{})); err != nil {
 		return err, download
 	}
 	err = db.Preload("CreatedByUser").Preload("UpdatedByUser").First(&download, "id = ?", id).Error

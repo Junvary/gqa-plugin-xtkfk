@@ -2,8 +2,8 @@ package privateapi
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/service/privateservice"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/service/privateservice"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"github.com/gin-gonic/gin"
@@ -29,7 +29,7 @@ func GetDownloadList(c *gin.Context) {
 }
 
 func EditDownload(c *gin.Context) {
-	var toEditDownload model.GqaPluginXkDownload
+	var toEditDownload model.GqaPluginXtkfkDownload
 	if err := gqaModel.RequestShouldBindJSON(c, &toEditDownload); err != nil {
 		return
 	}
@@ -55,7 +55,7 @@ func AddDownload(c *gin.Context) {
 			Memo:      toAddDownload.Memo,
 		},
 	}
-	addDownload := &model.GqaPluginXkDownload{
+	addDownload := &model.GqaPluginXtkfkDownload{
 		GqaModelWithCreatedByAndUpdatedBy: GqaModelWithCreatedByAndUpdatedBy,
 		Title:                             toAddDownload.Title,
 		Content:                           toAddDownload.Content,

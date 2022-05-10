@@ -2,19 +2,19 @@ package privateservice
 
 import (
 	gqaGlobal "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/global"
-	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xk/model"
+	"github.com/Junvary/gin-quasar-admin/GQA-BACKEND/gqaplugin/xtkfk/model"
 	gqaModel "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/model"
 	gqaServicePrivate "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/service/private"
 	gqaUtils "github.com/Junvary/gin-quasar-admin/GQA-BACKEND/utils"
 	"gorm.io/gorm"
 )
 
-func GetNewsList(getNewsList model.RequestGetNewsList, username string) (err error, news []model.GqaPluginXkNews, total int64) {
+func GetNewsList(getNewsList model.RequestGetNewsList, username string) (err error, news []model.GqaPluginXtkfkNews, total int64) {
 	pageSize := getNewsList.PageSize
 	offset := getNewsList.PageSize * (getNewsList.Page - 1)
-	var newsList []model.GqaPluginXkNews
+	var newsList []model.GqaPluginXtkfkNews
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkNews{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkNews{})); err != nil {
 		return err, newsList, 0
 	}
 	//配置搜索
@@ -29,12 +29,12 @@ func GetNewsList(getNewsList model.RequestGetNewsList, username string) (err err
 	return err, newsList, total
 }
 
-func EditNews(toEditNews model.GqaPluginXkNews, username string) (err error) {
+func EditNews(toEditNews model.GqaPluginXtkfkNews, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkNews{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkNews{})); err != nil {
 		return err
 	}
-	var news model.GqaPluginXkNews
+	var news model.GqaPluginXtkfkNews
 	if err = db.Where("id = ?", toEditNews.Id).First(&news).Error; err != nil {
 		return err
 	}
@@ -48,9 +48,9 @@ func EditNews(toEditNews model.GqaPluginXkNews, username string) (err error) {
 	return err
 }
 
-func AddNews(toAddNews model.GqaPluginXkNews, username string) (err error) {
+func AddNews(toAddNews model.GqaPluginXtkfkNews, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkNews{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkNews{})); err != nil {
 		return err
 	}
 	err = db.Create(&toAddNews).Error
@@ -59,10 +59,10 @@ func AddNews(toAddNews model.GqaPluginXkNews, username string) (err error) {
 
 func DeleteNewsById(id uint, username string) (err error) {
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkNews{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkNews{})); err != nil {
 		return err
 	}
-	var news model.GqaPluginXkNews
+	var news model.GqaPluginXtkfkNews
 	if err = db.Where("id = ?", id).First(&news).Error; err != nil {
 		return err
 	}
@@ -70,10 +70,10 @@ func DeleteNewsById(id uint, username string) (err error) {
 	return err
 }
 
-func QueryNewsById(id uint, username string) (err error, newsInfo model.GqaPluginXkNews) {
-	var news model.GqaPluginXkNews
+func QueryNewsById(id uint, username string) (err error, newsInfo model.GqaPluginXtkfkNews) {
+	var news model.GqaPluginXtkfkNews
 	var db *gorm.DB
-	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXkNews{})); err != nil {
+	if err, db = gqaServicePrivate.DeptDataPermission(username, gqaGlobal.GqaDb.Model(&model.GqaPluginXtkfkNews{})); err != nil {
 		return err, news
 	}
 	err = db.Preload("CreatedByUser").Preload("UpdatedByUser").First(&news, "id = ?", id).Error

@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-var PluginXkSysDict = new(sysDict)
+var PluginXtkfkSysDict = new(sysDict)
 
 type sysDict struct{}
 
@@ -18,15 +18,15 @@ func (s *sysDict) LoadData() error {
 		var count int64
 		tx.Model(&gqaModel.SysDict{}).Where("parent_code = ?", "projectNode").Or("dict_code = ?", "projectNode").Count(&count)
 		if count != 0 {
-			fmt.Println("[GQA-Plugin] --> sys_dict 表中xk插件菜单已存在，跳过初始化数据！数据量：", count)
-			gqaGlobal.GqaLogger.Warn("[GQA-Plugin] --> sys_dict 表中xk插件菜单已存在，跳过初始化数据！", zap.Any("数据量", count))
+			fmt.Println("[GQA-Plugin] --> sys_dict 表中xtkfk插件菜单已存在，跳过初始化数据！数据量：", count)
+			gqaGlobal.GqaLogger.Warn("[GQA-Plugin] --> sys_dict 表中xtkfk插件菜单已存在，跳过初始化数据！", zap.Any("数据量", count))
 			return nil
 		}
 		if err := tx.Create(&sysDictData).Error; err != nil { // 遇到错误时回滚事务
 			return err
 		}
-		fmt.Println("[GQA-Plugin] --> xk插件初始数据进入 sys_dict 表成功！")
-		gqaGlobal.GqaLogger.Info("[GQA-Plugin] --> xk插件初始数据进入 sys_dict 表成功！")
+		fmt.Println("[GQA-Plugin] --> xtkfk插件初始数据进入 sys_dict 表成功！")
+		gqaGlobal.GqaLogger.Info("[GQA-Plugin] --> xtkfk插件初始数据进入 sys_dict 表成功！")
 		return nil
 	})
 }
