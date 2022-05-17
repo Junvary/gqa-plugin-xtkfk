@@ -6,7 +6,7 @@
 
 <script setup>
 import useTableData from 'src/composables/useTableData'
-import { computed, markRaw, onMounted, ref } from 'vue';
+import { computed, markRaw, onMounted, ref, watch } from 'vue';
 const echarts = require('echarts')
 const chart = ref(null)
 const nodechart = ref(null)
@@ -28,18 +28,16 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
     handleDelete,
 } = useTableData(url)
 
-onMounted(() => {
+onMounted(async () => {
     pagination.value.sortBy = 'created_at'
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    await getTableData()
     init()
 })
 

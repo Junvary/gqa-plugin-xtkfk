@@ -52,6 +52,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -61,13 +62,12 @@ const {
 const slide = ref(1)
 const autoplay = ref(5000)
 const fullscreen = ref(false)
+
 onMounted(async () => {
     pagination.value.sortBy = 'created_at'
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    getTableData()
 })
+
 const dataList = computed(() => {
     if (tableData.value && tableData.value.length) {
         const honourList = []

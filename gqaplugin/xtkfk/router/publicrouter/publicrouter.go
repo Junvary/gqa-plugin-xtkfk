@@ -22,5 +22,7 @@ func InitPublicRouter(publicGroup *gin.RouterGroup) {
 		publicGroup.POST("get-document-list", publicapi.GetDocumentList)
 		//获取download列表
 		publicGroup.POST("get-download-list", publicapi.GetDownloadList)
+		//获取Abbreviate列表
+		publicGroup.POST("get-abbreviate-list", publicapi.GetAbbreviateList)
 	}
 }

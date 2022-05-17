@@ -67,8 +67,20 @@ func InitPrivateRouter(privateGroup *gin.RouterGroup) {
 		//新增download
 		xtkfkRouter.POST("add-download", privateapi.AddDownload)
 		//删除download
-		xtkfkRouter.POST("delete-download-by-id", privateapi.DeleteDownload)
+		xtkfkRouter.POST("delete-download-by-id", privateapi.DeleteDownloadById)
 		//根据ID查找download
 		xtkfkRouter.POST("query-download-by-id", privateapi.QueryDownloadById)
+	}
+	{
+		//获取abbreviate列表
+		xtkfkRouter.POST("get-abbreviate-list", privateapi.GetAbbreviateList)
+		//编辑download信息
+		xtkfkRouter.POST("edit-abbreviate", privateapi.EditAbbreviate)
+		//新增download
+		xtkfkRouter.POST("add-abbreviate", privateapi.AddAbbreviate)
+		//删除download
+		xtkfkRouter.POST("delete-abbreviate-by-id", privateapi.DeleteAbbreviateById)
+		//根据ID查找download
+		xtkfkRouter.POST("query-abbreviate-by-id", privateapi.QueryAbbreviateById)
 	}
 }

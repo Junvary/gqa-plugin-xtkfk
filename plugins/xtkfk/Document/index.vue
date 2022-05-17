@@ -55,7 +55,6 @@ import { postAction } from 'src/api/manage'
 import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import recordDetail from './modules/recordDetail'
-import GqaShowName from 'src/components/GqaShowName'
 
 const $q = useQuasar()
 const { t } = useI18n()
@@ -79,12 +78,14 @@ const {
     pageOptions,
     GqaDictShow,
     GqaAvatar,
+    GqaShowName,
     loading,
     tableData,
     recordDetailDialog,
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -92,9 +93,8 @@ const {
 } = useTableData(url)
 
 onMounted(() => {
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    pagination.value.sortBy = 'created_at'
+    pagination.value.descending = true
+    getTableData()
 })
 </script>

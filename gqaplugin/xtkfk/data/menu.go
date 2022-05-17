@@ -50,4 +50,7 @@ var sysMenuData = []gqaModel.SysMenu{
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 5, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是资源管理",
 	}}, Name: "plugin-xtkfk-download", Title: "资源管理", Icon: "download", Path: "/plugin-xtkfk/xtkfk/download", Component: "plugins/xtkfk/Download/index", ParentCode: "GqaPluginXtkfk"},
+	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
+		Sort: 6, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是简称管理",
+	}}, Name: "plugin-xtkfk-abbreviate", Title: "简称管理", Icon: "download", Path: "/plugin-xtkfk/xtkfk/abbreviate", Component: "plugins/xtkfk/Abbreviate/index", ParentCode: "GqaPluginXtkfk"},
 }

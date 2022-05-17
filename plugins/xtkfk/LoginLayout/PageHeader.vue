@@ -13,6 +13,7 @@
             <q-btn flat rounded push size="lg" text-color="white" @click="handleScroll('gqa-weapon')" label="武器库" />
             <q-btn flat rounded push size="lg" text-color="white" @click="handleScroll('gqa-honour')" label="荣誉认证" />
             <q-btn flat rounded push size="lg" text-color="white" @click="handleScroll('gqa-resource')" label="资源查阅" />
+            <q-btn flat rounded push size="lg" text-color="white" @click="openBlankAbbreviate" label="简称大全" />
             <q-btn flat rounded push size="lg" text-color="white" label="版本信息">
                 <GqaVersion />
             </q-btn>
@@ -25,7 +26,9 @@ import GqaVersion from 'src/components/GqaVersion'
 import GqaAvatar from 'src/components/GqaAvatar'
 import { onBeforeUnmount, onMounted } from 'vue';
 import useCommon from 'src/composables/useCommon';
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
 const { gqaFrontend } = useCommon()
 
 const flow = () => {
@@ -49,6 +52,22 @@ onBeforeUnmount(() => {
         header.classList.toggle('sticky', window.scrollY > 0)
     })
 })
+const openBlankAbbreviate = () => {
+    /*
+        1.在 src/router/routes文件的 /new-tab 路由的children列表加入
+        {
+            path: "/new-tab/abbreviate",
+            component: () => import('src/plugins/xtkfk/NewTabLayout/Abbreviate.vue')
+        }
+        2.在 src/composables/useCommon.js 中的 const AllowList = ['/login', '/init-db'] 添加 '/new-tab/abbreviate'
+    */
+    // new-tab前缀 为固定写法，不喜欢可以替换src/router/routes中的路由path
+    //新窗口打开
+    const r = router.resolve({ path: '/new-tab/abbreviate' })
+    window.open(r.href)
+    // 老窗口跳转
+    // router.push({ path: '/new-tab/abbreviate' })
+}
 
 </script>
 

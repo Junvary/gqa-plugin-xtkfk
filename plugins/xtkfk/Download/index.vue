@@ -85,6 +85,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -92,9 +93,8 @@ const {
 } = useTableData(url)
 
 onMounted(() => {
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    pagination.value.sortBy = 'created_at'
+    pagination.value.descending = true
+    getTableData()
 })
 </script>

@@ -1,6 +1,8 @@
 <template>
     <q-page padding>
+
         <div class="row q-gutter-md items-center" style="margin-bottom: 10px">
+            <q-input style="width: 20%" v-model="queryParams.top" label="大分类" />
             <q-input style="width: 20%" v-model="queryParams.title" label="标题" />
             <q-btn color="primary" @click="handleSearch" label="搜索" />
             <q-btn color="primary" @click="resetSearch" label="重置" />
@@ -10,7 +12,7 @@
             :rows-per-page-options="pageOptions" :loading="loading" @request="onRequest">
 
             <template v-slot:top="props">
-                <q-btn color="primary" @click="showAddForm()" label="新增荣誉认证" />
+                <q-btn color="primary" @click="showAddForm()" label="新增简称" />
                 <q-space />
                 <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
                     @click="props.toggleFullscreen" class="q-ml-md" />
@@ -59,12 +61,13 @@ import GqaShowName from 'src/components/GqaShowName'
 const $q = useQuasar()
 const { t } = useI18n()
 const url = {
-    list: 'plugin-xtkfk/get-honour-list',
-    delete: 'plugin-xtkfk/delete-honour',
+    list: 'plugin-xtkfk/get-abbreviate-list',
+    delete: 'plugin-xtkfk/delete-abbreviate',
 }
 const columns = computed(() => {
     return [
-        { name: 'title', align: 'center', label: '荣誉认证标题', field: 'title' },
+        { name: 'top', align: 'center', label: '大分类', field: 'top' },
+        { name: 'title', align: 'center', label: '文档标题', field: 'title' },
         { name: 'created_by', align: 'center', label: '发布人', field: 'created_by' },
         { name: 'created_at', align: 'center', label: '发布时间', field: 'created_at' },
         { name: 'status', align: 'center', label: '状态', field: 'status' },

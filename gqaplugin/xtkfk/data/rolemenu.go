@@ -41,4 +41,5 @@ var sysRoleMenuData = []gqaModel.SysRoleMenu{
 	{"super-admin", "plugin-xtkfk-honour"},
 	{"super-admin", "plugin-xtkfk-document"},
 	{"super-admin", "plugin-xtkfk-download"},
+	{"super-admin", "plugin-xtkfk-abbreviate"},
 }

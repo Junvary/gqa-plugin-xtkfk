@@ -69,7 +69,7 @@ func AddDownload(c *gin.Context) {
 	}
 }
 
-func DeleteDownload(c *gin.Context) {
+func DeleteDownloadById(c *gin.Context) {
 	var toDeleteId gqaModel.RequestQueryById
 	if err := gqaModel.RequestShouldBindJSON(c, &toDeleteId); err != nil {
 		return

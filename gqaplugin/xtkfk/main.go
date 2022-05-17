@@ -44,6 +44,7 @@ func (p *xtkfk) PluginMigrate() []interface{} { //实现接口方法，迁移插
 		model.GqaPluginXtkfkHonour{},
 		model.GqaPluginXtkfkDocument{},
 		model.GqaPluginXtkfkDownload{},
+		model.GqaPluginXtkfkAbbreviate{},
 	}
 	return ModelList
 }

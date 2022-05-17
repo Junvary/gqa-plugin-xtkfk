@@ -11,7 +11,7 @@
                 <q-space />
                 <!-- <q-input dense v-model="queryParams.title" label="标题" />
                 <q-btn dense color="primary" @click="handleSearch" label="搜索" style="margin: 0 10px" /> -->
-                <q-btn dense round push icon="cached" @click="onRequest" />
+                <q-btn dense round push icon="cached" @click="getTableData" />
             </template>
 
             <template v-slot:body-cell-title="props">
@@ -103,6 +103,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -111,12 +112,11 @@ const {
 
 const showDetailVisible = ref(false)
 const detail = ref({})
+
 onMounted(() => {
     pagination.value.sortBy = 'created_at'
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    pagination.value.descending = true
+    getTableData()
 
 })
 

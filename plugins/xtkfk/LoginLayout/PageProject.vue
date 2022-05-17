@@ -11,7 +11,7 @@
                 <q-space />
                 <!-- <q-input dense v-model="queryParams.title" label="标题" />
                 <q-btn dense color="primary" @click="handleSearch" label="搜索" style="margin: 0 10px" /> -->
-                <q-btn dense round push icon="cached" @click="onRequest" />
+                <q-btn dense round push icon="cached" @click="getTableData" />
             </template>
 
             <template v-slot:body-cell-leader="props">
@@ -52,7 +52,7 @@ const url = {
     list: 'public/plugin-xtkfk/get-project-list',
 }
 const columns = [
-    { name: 'projectName', align: 'center', label: '项目名称', field: 'projectName' },
+    { name: 'project_name', align: 'center', label: '项目名称', field: 'project_name' },
     { name: 'demand', align: 'center', label: '需求单位', field: 'demand' },
     { name: 'leader', align: 'center', label: '牵头人', field: 'leader' },
     { name: 'player', align: 'center', label: '参与人', field: 'player' },
@@ -74,6 +74,7 @@ const {
     showAddForm,
     showEditForm,
     onRequest,
+    getTableData,
     handleSearch,
     resetSearch,
     handleFinish,
@@ -82,10 +83,8 @@ const {
 
 onMounted(() => {
     pagination.value.sortBy = 'created_at'
-    onRequest({
-        pagination: pagination.value,
-        queryParams: queryParams.value
-    })
+    pagination.value.descending = true
+    getTableData()
 })
 const dataList = computed(() => {
     if (tableData.value && tableData.value.length) {

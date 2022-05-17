@@ -114,4 +114,20 @@ var sysApiData = []gqaModel.SysApi{
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 826, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "插件xtkfk：根据ID查找download",
 	}}, ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/query-download-by-id"},
+
+	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
+		Sort: 827, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "插件xtkfk：获取abbreviate-list",
+	}}, ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/get-abbreviate-list"},
+	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
+		Sort: 828, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "插件xtkfk：编辑abbreviate信息",
+	}}, ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/edit-abbreviate"},
+	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
+		Sort: 829, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "插件xtkfk：新增abbreviate",
+	}}, ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/add-abbreviate"},
+	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
+		Sort: 830, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "插件xtkfk：删除abbreviate",
+	}}, ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/delete-abbreviate-by-id"},
+	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
+		Sort: 831, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "插件xtkfk：根据ID查找abbreviate",
+	}}, ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/query-abbreviate-by-id"},
 }

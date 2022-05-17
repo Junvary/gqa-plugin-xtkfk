@@ -61,4 +61,10 @@ var sysRoleApiData = []gqaModel.SysRoleApi{
 	{RoleCode: "super-admin", ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/add-download"},
 	{RoleCode: "super-admin", ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/delete-download-by-id"},
 	{RoleCode: "super-admin", ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/query-download-by-id"},
+
+	{RoleCode: "super-admin", ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/get-abbreviate-list"},
+	{RoleCode: "super-admin", ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/edit-abbreviate"},
+	{RoleCode: "super-admin", ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/add-abbreviate"},
+	{RoleCode: "super-admin", ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/delete-abbreviate-by-id"},
+	{RoleCode: "super-admin", ApiGroup: "plugin-xtkfk", ApiMethod: "POST", ApiPath: "/plugin-xtkfk/query-abbreviate-by-id"},
 }
