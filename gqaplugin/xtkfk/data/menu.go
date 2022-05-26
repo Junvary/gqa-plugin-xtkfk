@@ -34,23 +34,23 @@ func (s *sysMenu) LoadData() error {
 var sysMenuData = []gqaModel.SysMenu{
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 801, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是系统开发科插件",
-	}}, Name: "GqaPluginXtkfk", Title: "系统开发科", Icon: "home", Path: "", Component: ""},
+	}}, IsPlugin: "yes", Name: "GqaPluginXtkfk", Title: "系统开发科", Icon: "home", Path: "", Component: ""},
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 1, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是最新要闻",
-	}}, Name: "plugin-xtkfk-news", Title: "最新要闻", Icon: "newspaper", Path: "/plugin-xtkfk/xtkfk/news", Component: "plugins/xtkfk/News/index", ParentCode: "GqaPluginXtkfk"},
+	}}, IsPlugin: "yes", Name: "plugin-xtkfk-news", Title: "最新要闻", Icon: "newspaper", Path: "/plugin-xtkfk/xtkfk/news", Component: "plugins/xtkfk/News/index", ParentCode: "GqaPluginXtkfk"},
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 2, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是项目管理",
-	}}, Name: "plugin-xtkfk-project", Title: "项目管理", Icon: "beenhere", Path: "/plugin-xtkfk/xtkfk/project", Component: "plugins/xtkfk/Project/index", ParentCode: "GqaPluginXtkfk"},
+	}}, IsPlugin: "yes", Name: "plugin-xtkfk-project", Title: "项目管理", Icon: "beenhere", Path: "/plugin-xtkfk/xtkfk/project", Component: "plugins/xtkfk/Project/index", ParentCode: "GqaPluginXtkfk"},
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 3, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是荣誉认证",
-	}}, Name: "plugin-xtkfk-honour", Title: "荣誉认证", Icon: "stars", Path: "/plugin-xtkfk/xtkfk/honour", Component: "plugins/xtkfk/Honour/index", ParentCode: "GqaPluginXtkfk"},
+	}}, IsPlugin: "yes", Name: "plugin-xtkfk-honour", Title: "荣誉认证", Icon: "stars", Path: "/plugin-xtkfk/xtkfk/honour", Component: "plugins/xtkfk/Honour/index", ParentCode: "GqaPluginXtkfk"},
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 4, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是文档管理",
-	}}, Name: "plugin-xtkfk-document", Title: "文档管理", Icon: "edit_note", Path: "/plugin-xtkfk/xtkfk/document", Component: "plugins/xtkfk/Document/index", ParentCode: "GqaPluginXtkfk"},
+	}}, IsPlugin: "yes", Name: "plugin-xtkfk-document", Title: "文档管理", Icon: "edit_note", Path: "/plugin-xtkfk/xtkfk/document", Component: "plugins/xtkfk/Document/index", ParentCode: "GqaPluginXtkfk"},
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 5, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是资源管理",
-	}}, Name: "plugin-xtkfk-download", Title: "资源管理", Icon: "download", Path: "/plugin-xtkfk/xtkfk/download", Component: "plugins/xtkfk/Download/index", ParentCode: "GqaPluginXtkfk"},
+	}}, IsPlugin: "yes", Name: "plugin-xtkfk-download", Title: "资源管理", Icon: "download", Path: "/plugin-xtkfk/xtkfk/download", Component: "plugins/xtkfk/Download/index", ParentCode: "GqaPluginXtkfk"},
 	{GqaModelWithCreatedByAndUpdatedBy: gqaModel.GqaModelWithCreatedByAndUpdatedBy{GqaModel: gqaGlobal.GqaModel{
 		Sort: 6, Stable: "yes", CreatedBy: "admin", CreatedAt: time.Now(), Memo: "这是简称管理",
-	}}, Name: "plugin-xtkfk-abbreviate", Title: "简称管理", Icon: "download", Path: "/plugin-xtkfk/xtkfk/abbreviate", Component: "plugins/xtkfk/Abbreviate/index", ParentCode: "GqaPluginXtkfk"},
+	}}, IsPlugin: "yes", Name: "plugin-xtkfk-abbreviate", Title: "简称管理", Icon: "download", Path: "/plugin-xtkfk/xtkfk/abbreviate", Component: "plugins/xtkfk/Abbreviate/index", ParentCode: "GqaPluginXtkfk"},
 }
